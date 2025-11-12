@@ -1,42 +1,23 @@
-import express, { response } from 'express';
+import express from "express";
+import usersRouter from "./routes/users.mjs";
 
 const app = express();
 
+// when you want it to be sent by json format
+app.use(express.json());
+
+app.use(usersRouter)
+
 const PORT = process.env.PORT || 3000;
 
-const mockUsers = [
-    {id: 1, username: "anson", displayName: "Anson"},
-    {id: 2, username: "jack", displayName: "Jack"},
-    {id: 3, username: "adam", displayName: "Adam"}
-];
+// router.get("/", (request, response) => {
+//   response.status(201).send({ msg: "Hello" });
+// });
 
-app.get('/', (request, response) => {
-    response.status(201).send({ msg: "Hello" });
-});
-
-app.get('/api/users', (request, response) => {
-    response.send(mockUsers);
-});
-
-app.get('/api/users/:id', (request, response) => {
-    console.log(request.params);
-    const parsedId = parseInt(request.params.id);
-    console.log(parsedId)
-
-    if (isNaN(parsedId))
-        return response.status(400).send({ msg: "Bad Request. Invalid ID" });
-
-    const findUser = mockUsers.find((user) => user.id === parsedId);
-    if (!findUser) return response.sendStatus(404);
-    return response.send(findUser)
-})
-
-app.get('/api/products', (request, response) => {
-    response.send([
-        {id: 123, name: 'chicken breast', price: 12.99 }
-    ])
-})
+// router.get("/api/products", (request, response) => {
+//   response.send([{ id: 123, name: "chicken breast", price: 12.99 }]);
+// });
 
 app.listen(PORT, () => {
-    console.log(`Running on Port ${PORT}`);
+  console.log(`Running on Port ${PORT}`);
 });
