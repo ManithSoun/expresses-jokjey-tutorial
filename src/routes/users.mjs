@@ -17,7 +17,6 @@ resolveIndexByUserId;
 const router = Router();
 
 //GET
-
 router.get(
   "/api/users",
   checkSchema(filterValidationSchema),
