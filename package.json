@@ -11,15 +11,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@apollo/server": "^4.12.2",
     "cookie-parser": "^1.4.7",
     "cookies-parser": "^1.2.0",
-    "express": "^5.1.0",
+    "express": "^5.2.1",
     "express-session": "^1.18.2",
-    "express-validator": "^7.3.0"
+    "express-validator": "^7.3.0",
+    "graphql": "^16.12.0"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.10",
-    "nodemon": "^3.1.10"
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.0.3",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   },
   "type": "module",
   "description": ""
